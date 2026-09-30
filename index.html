@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sai Vinay | Blog</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f7fb;
+    color:#222;
+}
+
+header{
+    background:linear-gradient(135deg,#4b0082,#7b2cbf);
+    color:white;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 12px rgba(0,0,0,.2);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#ffd166;
+}
+
+.hero{
+    min-height:450px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:60px 20px;
+    background:linear-gradient(rgba(75,0,130,.75),rgba(123,44,191,.75)),
+    url("https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    color:white;
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.hero h1{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:20px;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+.btn{
+    display:inline-block;
+    padding:13px 28px;
+    background:#ffd166;
+    color:#222;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
+    border:none;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:white;
+    transform:translateY(-3px);
+}
+
+.section{
+    padding:60px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    font-size:36px;
+    color:#4b0082;
+}
+
+.section-title p{
+    margin-top:10px;
+    color:#666;
+}
+
+.blog-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.blog-card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.blog-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.blog-card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.blog-content{
+    padding:22px;
+}
+
+.blog-content span{
+    color:#7b2cbf;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.blog-content h3{
+    margin:10px 0;
+    font-size:23px;
+}
+
+.blog-content p{
+    color:#666;
+    line-height:1.6;
+    margin-bottom:18px;
+}
+
+.read-more{
+    color:#4b0082;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.about{
+    background:white;
+}
+
+.about-container{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+.about-container h2{
+    color:#4b0082;
+    font-size:36px;
+    margin-bottom:20px;
+}
+
+.about-container p{
+    color:#555;
+    font-size:17px;
+    line-height:1.8;
+}
+
+.subscribe{
+    background:linear-gradient(135deg,#4b0082,#7b2cbf);
+    color:white;
+    text-align:center;
+}
+
+.subscribe h2{
+    font-size:35px;
+    margin-bottom:12px;
+}
+
+.subscribe p{
+    margin-bottom:25px;
+}
+
+.subscribe-box{
+    display:flex;
+    justify-content:center;
+    max-width:550px;
+    margin:auto;
+}
+
+.subscribe-box input{
+    flex:1;
+    padding:15px;
+    border:none;
+    outline:none;
+    border-radius:30px 0 0 30px;
+    font-size:16px;
+}
+
+.subscribe-box button{
+    border-radius:0 30px 30px 0;
+}
+
+#message{
+    margin-top:15px;
+    font-weight:bold;
+}
+
+.contact{
+    text-align:center;
+}
+
+.contact h2{
+    color:#4b0082;
+    margin-bottom:20px;
+}
+
+.contact p{
+    margin:10px;
+    color:#555;
+}
+
+footer{
+    background:#181818;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+.social{
+    margin:15px 0;
+}
+
+.social a{
+    color:white;
+    text-decoration:none;
+    margin:0 10px;
+    font-size:18px;
+}
+
+.social a:hover{
+    color:#ffd166;
+}
+
+@media(max-width:700px){
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav{
+        gap:15px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .section{
+        padding:45px 5%;
+    }
+
+    .subscribe-box{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .subscribe-box input,
+    .subscribe-box button{
+        border-radius:30px;
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Sai Vinay</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#blogs">Blogs</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Welcome to Sai Vinay</h1>
+        <p>Explore ideas, stories, technology, lifestyle and inspiration through meaningful blogs.</p>
+        <a href="#blogs" class="btn">Explore Blogs</a>
+    </div>
+</section>
+
+<section class="section" id="blogs">
+    <div class="section-title">
+        <h2>Latest Blogs</h2>
+        <p>Discover our latest thoughts and articles</p>
+    </div>
+
+    <div class="blog-grid">
+
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80">
+            <div class="blog-content">
+                <span>Technology</span>
+                <h3>The Future of Technology</h3>
+                <p>Technology is changing the way we learn, communicate and experience the world around us.</p>
+                <a href="#" class="read-more" onclick="showBlog('The Future of Technology')">Read More →</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80">
+            <div class="blog-content">
+                <span>Lifestyle</span>
+                <h3>Building a Better Life</h3>
+                <p>Small positive habits can make a meaningful difference in your everyday life.</p>
+                <a href="#" class="read-more" onclick="showBlog('Building a Better Life')">Read More →</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=800&q=80">
+            <div class="blog-content">
+                <span>Motivation</span>
+                <h3>Keep Moving Forward</h3>
+                <p>Success is built through consistency, patience and the courage to keep going.</p>
+                <a href="#" class="read-more" onclick="showBlog('Keep Moving Forward')">Read More →</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80">
+            <div class="blog-content">
+                <span>Education</span>
+                <h3>Learning Every Day</h3>
+                <p>Continuous learning helps us develop new skills and understand the world better.</p>
+                <a href="#" class="read-more" onclick="showBlog('Learning Every Day')">Read More →</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=800&q=80">
+            <div class="blog-content">
+                <span>Personal Growth</span>
+                <h3>Believe in Yourself</h3>
+                <p>Confidence grows when you take action, learn from mistakes and continue improving.</p>
+                <a href="#" class="read-more" onclick="showBlog('Believe in Yourself')">Read More →</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80">
+            <div class="blog-content">
+                <span>Web Development</span>
+                <h3>Starting Your Coding Journey</h3>
+                <p>Learning HTML, CSS and JavaScript is a great starting point for building websites.</p>
+                <a href="#" class="read-more" onclick="showBlog('Starting Your Coding Journey')">Read More →</a>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<section class="section about" id="about">
+    <div class="about-container">
+        <h2>About Sai Vinay</h2>
+        <p>
+            Sai Vinay is a personal blogging platform where ideas, experiences,
+            technology, education and motivation come together. The goal is to
+            share useful thoughts and create a simple place for readers to learn,
+            explore and get inspired.
+        </p>
+    </div>
+</section>
+
+<section class="section subscribe">
+    <h2>Join Our Community</h2>
+    <p>Subscribe to receive the latest blogs and updates.</p>
+
+    <form class="subscribe-box" onsubmit="subscribeUser(event)">
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <button class="btn" type="submit">Subscribe</button>
+    </form>
+
+    <div id="message"></div>
+</section>
+
+<section class="section contact" id="contact">
+    <h2>Contact Sai Vinay</h2>
+    <p>Email: saivinay@example.com</p>
+    <p>Phone: +91 98765 43210</p>
+    <p>Location: India</p>
+</section>
+
+<footer>
+    <div class="social">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">YouTube</a>
+    </div>
+    <p>© 2026 Sai Vinay. All Rights Reserved.</p>
+</footer>
+
+<script>
+function showBlog(title){
+    event.preventDefault();
+    alert("You selected: " + title + "\n\nThe complete article will be available soon.");
+}
+
+function subscribeUser(event){
+    event.preventDefault();
+
+    const email=document.getElementById("email").value;
+    const message=document.getElementById("message");
+
+    if(email){
+        message.textContent="Thank you for subscribing!";
+        document.getElementById("email").value="";
+    }
+}
+</script>
+
+</body>
+</html>
